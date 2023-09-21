@@ -1,6 +1,5 @@
-# https://www.codingninjas.com/studio/problems/distinct-island_630460
-
-def distinctIsland(grid,n,m) :
+def findIslands(grid, n, m):
+    
     def dfs(i, j, shape):
         if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == 0:
             return
@@ -15,6 +14,10 @@ def distinctIsland(grid,n,m) :
         dfs(i-1, j, shape)
         dfs(i, j+1, shape)
         dfs(i, j-1, shape)
+        dfs(i-1, j-1, shape)
+        dfs(i+1, j+1, shape)
+        dfs(i-1, j+1, shape)
+        dfs(i+1, j-1, shape)
 
     distinct_shapes = set()
     for i in range(len(grid)):
